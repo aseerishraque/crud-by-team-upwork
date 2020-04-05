@@ -58,7 +58,7 @@ class IshController extends Controller
     {
         $employee = new Employee();
         $employee = $employee->find($id);
-        return view('employee.edit', [
+        return view('employees.edit', [
             'employee' => $employee
         ]);
 
