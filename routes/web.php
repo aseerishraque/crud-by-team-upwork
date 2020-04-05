@@ -18,5 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('employees/edit/{id}', "IshController@edit");
+
+
 Route::put('employees/edit/{id}', "EmployeeController@update");
+
 Route::get('employees',"EmployeeController@index");
