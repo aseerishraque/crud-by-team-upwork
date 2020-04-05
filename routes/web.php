@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('employees/edit/{id}', "IshController@edit");
+Route::resource('employees','EmployeeController');
