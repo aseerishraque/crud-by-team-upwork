@@ -74,7 +74,9 @@ class EmployeeController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
-            'pass' => 'required',
+            'old_pass' => 'required',
+            'new_pass' => 'required',
+            're_pass' => 'required|same:new_pass',
         ]);
 
         $employee = new Employee();
@@ -83,7 +85,11 @@ class EmployeeController extends Controller
         $employee->name = $request->name;
         $employee->email = $request->email;
         $employee->phone = $request->phone;
-        $employee->pass = md5($request->phone);
+        if(md5($request->old_pass) != $employee->pass)
+        {
+            return redirect()->back()->with('Wrong Password');
+        }
+        $employee->pass = md5($request->new_pass);
 
         if($employee->save())
         {
