@@ -17,5 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('employees', 'FahadsController@show');
 Route::get('employees/edit/{id}', "IshController@edit");
 Route::put('employees/edit/{id}', "EmployeeController@update");
